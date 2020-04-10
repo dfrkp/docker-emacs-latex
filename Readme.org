@@ -6,6 +6,8 @@
   The image allows for headless exports from org-mode to pdf using latex.
 
 * Usage
+
+  [[https://hub.docker.com/repository/docker/dfrkp/emacs-latex/general][Find the ready to use image on Docker hub]]
   
   Convert your `.org` file to a pdf with this command:
 
