@@ -1,0 +1,14 @@
+* Purpose
+
+  This repository is used for the automated build of a docker image
+  containing emacs with org-mode and texlive.
+
+  The image allows for headless exports from org-mode to pdf using latex.
+
+* Usage
+  
+  Convert your `.org` file to a pdf with this command:
+
+  #+BEGIN_SRC sh
+  docker run --rm -v `pwd`:/root dfrkp/emacs-latex -l .emacs.d/init.el -Q --visit /root/<your file>.org --batch --eval "(org-latex-export-to-pdf)"
+  #+END_SRC
