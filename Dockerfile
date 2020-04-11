@@ -18,8 +18,3 @@ WORKDIR /home/emacs-org
 
 RUN mkdir .emacs.d
 COPY init.el .emacs.d/
-
-ENTRYPOINT ["emacs"]
-
-
-CMD ["-h"]
