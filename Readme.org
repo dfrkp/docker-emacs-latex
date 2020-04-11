@@ -12,5 +12,22 @@
   Convert your `.org` file to a pdf with this command:
 
   #+BEGIN_SRC sh
-  docker run --rm -v `pwd`:/root dfrkp/emacs-latex -l .emacs.d/init.el -Q --visit /root/<your file>.org --batch --eval "(org-latex-export-to-pdf)"
+    docker run --rm -v `pwd`:/root dfrkp/emacs-latex emacs -l .emacs.d/init.el -Q --visit /root/<your file>.org --batch --eval "(org-latex-export-to-pdf)"
   #+END_SRC
+
+  
+** GitLab CI
+
+   #+BEGIN_SRC yaml
+     pdf:
+       image:
+	 name: dfrkp/emacs-latex:latest
+
+       script:
+	 - emacs -l ~/.emacs.d/init.el -Q --visit Thesis.org --batch --eval "(org-latex-export-to-pdf)"
+
+       artifacts:
+	 paths:
+	   - Thesis.pdf
+	 expire_in: 3 weeks
+   #+END_SRC
